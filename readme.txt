@@ -3,7 +3,7 @@ Contributors: Bishoy.A
 Tags: ios, iphone, thumbnails, media, images, upload
 Donate link: http://bishoy.me/donate
 Requires at least: 2.0.0
-Tested up to: 3.9.1
+Tested up to: 4.0
 Stable tag: trunk
 Author: Bishoy A.
 License: GPL2
