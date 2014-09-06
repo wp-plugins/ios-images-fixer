@@ -1,5 +1,5 @@
 === iOS images fixer ===
-Contributors: Bishoy
+Contributors: Bishoy.A
 Tags: ios, iphone, thumbnails, media, images, upload
 Donate link: http://bishoy.me/donate
 Requires at least: 2.0.0
