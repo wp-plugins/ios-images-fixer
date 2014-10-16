@@ -31,5 +31,8 @@ No, just install the plugin and continue blogging happily.
 
 == Changelog ==
 
+= 1.1 =
+Added conditional check and admin notice in case of disabled required functions.
+
 = 1.0 =
 * Initial plugin release.
