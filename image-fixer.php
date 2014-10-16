@@ -3,7 +3,7 @@
  * Plugin Name: iOS Images Fixer
  * Plugin URI: http://bishoy.me/wp-plugins/ios-images-fixer/
  * Description: This plugin fixes iOS-taken images' orientation upon uploading using ImageMagic Library if available or PHP GD as a fallback. No settings editing required, just activate the plugin and try uploading an image from your idevice! If you like this free plugin, please <a href="http://bishoy.me/donate" target="_blank">consider a donation</a>.
- * Version: 1.0
+ * Version: 1.1
  * Author: Bishoy A.
  * Author URI: http://bishoy.me
  * License: GPL2
@@ -24,8 +24,6 @@
     along with this program; if not, write to the Free Software
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
-add_action( 'plugins_loaded', array ( BAImageFixer::get_instance(), 'start' ) );
 
 class BAImageFixer {
 
@@ -55,6 +53,36 @@ class BAImageFixer {
 	 */
 	public static function start() {
 		add_filter( 'wp_handle_upload_prefilter', array( self::get_instance(), 'imf_exif_rotate' ) );
+		add_action( 'admin_notices', array( self::get_instance(), 'required_function_notice' ) );
+	}
+
+	/**
+	 * Admin notice if a required function is not available
+	 * @return mixed
+	 */
+	public static function required_function_notice() {
+		if ( self::something_is_wrong() ) {
+			echo '<div class="error">
+		       <p><strong>iOS Images Fixer Error:</strong> ' . self::something_is_wrong() . '</p>
+		    </div>';
+		}
+
+		return false;
+	}
+
+	/**
+	 * Checks if required functions are enabled
+	 * @return boolean|string
+	 */
+	public static function something_is_wrong() {
+		if ( ! function_exists( 'read_exif_data' ) ) {
+			return __( 'The function <strong>read_exif_data()</strong> is currently disabled in your PHP configuration. This is a required function for the plugin to work. Please enable this function or contact your hosting provider to do so for you.' );
+		} elseif ( ! class_exists( 'Imagick' ) ) {
+			if ( ! function_exists( 'imagecreatefromjpeg' ) ) {
+				return __( 'PHP GD and Imagick extensions are currently disabled in your PHP configuration. At least one of these extensions should be enabled. Please enable one of them or contact your hosting provider to do so for you.' );
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -64,6 +92,11 @@ class BAImageFixer {
 	 * @since 1.0
 	 */
 	public static function imf_exif_rotate( $file ){
+
+		if ( self::something_is_wrong() ) {
+			return $file;
+		}
+
 		$exif = self::imf_exif_orient_correction( $file );
 		return $exif;
 	}
@@ -75,6 +108,7 @@ class BAImageFixer {
 	 * @since 1.0
 	 */
 	public static function imf_exif_orient_correction( $file ) {
+
 		if ( $file['type'] != 'image/jpeg' ) {
 			return $file;
 		}
@@ -114,3 +148,9 @@ class BAImageFixer {
 		return $file;
 	}
 }
+
+function imf_ios_images_fixer() {
+	BAImageFixer::start();
+}
+
+$_GLOBAL['BAImageFixer'] = imf_ios_images_fixer();
