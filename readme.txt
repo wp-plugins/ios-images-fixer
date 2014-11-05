@@ -12,7 +12,7 @@ License URI: http://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses
 Automatically fix iOS-taken images' orientation using ImageMagic/PHP GD upon upload.
 
 == Description ==
-By default, thumbnails of photos taken by an iOS device (iPhone or iPad) are flipped 90 degrees to the left, it's a long image EXIF information story. This plugin takes care of this and fixes the uploaded images orientation's (if needed, based on EXIT data) using ImageMagic Library if available or PHP GD as a fallback. 
+By default, thumbnails of photos taken by an iOS device (iPhone or iPad) are flipped 90 degrees to the left, it's a long image EXIF information story. This plugin takes care of this and fixes the uploaded images orientation's (if needed, based on EXIF data) using ImageMagic Library if available or PHP GD as a fallback. 
 
 No settings editing required, just activate the plugin and try uploading an image from your idevice!
 
