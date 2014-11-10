@@ -23,6 +23,12 @@ Yes, PHP GD library or ImageMagic.
 = Is there any code-level modifications required? =
 No, just install the plugin and continue blogging happily.
 
+== Screenshots ==
+
+1. New page for fixing iOS images manually, including images that were uploaded before the plugin's installation!
+2. Fix Images. Those are the ones that were not catched by the plugin for some reason, or has been uploaded before the plugin's installation.
+3. This is what the plugin would do to the image in figure 2.
+
 == Installation ==
 1. Go to your admin area and select Plugins -> Add new from the menu.
 2. Search for "iOS Images Fixer".
