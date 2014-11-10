@@ -25,7 +25,7 @@ No, just install the plugin and continue blogging happily.
 
 == Screenshots ==
 
-1. New page for fixing iOS images manually, including images that were uploaded before the plugin's installation!
+1. Apart from automatically fix images upon upload, we're introducing a new feature for fixing iOS images manually, including images that were uploaded before the plugin's installation!
 2. Fix Images. Those are the ones that were not catched by the plugin for some reason, or has been uploaded before the plugin's installation.
 3. This is what the plugin would do to the image in figure 2.
 
@@ -38,10 +38,10 @@ No, just install the plugin and continue blogging happily.
 == Changelog ==
 
 = 1.2 =
-Added manual fix page to let you fix images that were uploaded before installing the plugin!
+* Added manual fix page to let you fix images that were uploaded before installing the plugin!
 
 = 1.1 =
-Added conditional check and admin notice in case of disabled required functions.
+* Added conditional check and admin notice in case of disabled required functions.
 
 = 1.0 =
 * Initial plugin release.
