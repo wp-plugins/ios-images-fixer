@@ -47,6 +47,7 @@ if ( ! empty( $_POST['fixThemAll'] ) && ! empty( $broken_images ) ) {
 			wp_update_attachment_metadata( $image->ID, $metadata );
 		}
 	}
+	$broken_images = self::get_broken_images();
 } ?>
 <div class="wrap">
 <h2><?php echo $title; ?> <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=7PAQ58EN6H7QJ" class="add-new-h2" title="Much appreciated! :)" target="_blank">Donate</a></h2>

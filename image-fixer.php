@@ -51,7 +51,7 @@ class BAImageFixer {
 	 * Start the plugin
 	 * @since 1.0
 	 */
-	public function start() {
+	public static function start() {
 		add_filter( 'wp_handle_upload_prefilter', array( self::get_instance(), 'imf_exif_rotate' ) );
 		if ( is_admin() ){ 
 			add_action( 'admin_notices', array( self::get_instance(), 'required_function_notice' ) );
