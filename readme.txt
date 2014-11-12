@@ -21,7 +21,7 @@ No settings editing required, just activate the plugin and try uploading an imag
 * PHP GD library or ImageMagic.
 * exif extension installed.
 
-= Is there any code-level modifications required? =
+= Are there any code-level modifications required? =
 No, just install the plugin and continue blogging happily.
 
 == Screenshots ==
