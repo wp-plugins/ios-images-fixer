@@ -18,7 +18,9 @@ No settings editing required, just activate the plugin and try uploading an imag
 
 == Frequently Asked Questions ==
 = Is there any special requirement? =
-Yes, PHP GD library or ImageMagic.
+Yes, 
+* PHP GD library or ImageMagic.
+* exif extension installed.
 
 = Is there any code-level modifications required? =
 No, just install the plugin and continue blogging happily.
