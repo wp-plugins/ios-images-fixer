@@ -17,8 +17,7 @@ By default, thumbnails of photos taken by an iOS device (iPhone or iPad) are fli
 No settings editing required, just activate the plugin and try uploading an image from your idevice!
 
 == Frequently Asked Questions ==
-= Is there any special requirement? =
-Yes, 
+= Is there any special requirement? = 
 * PHP GD library or ImageMagic.
 * exif extension installed.
 
