@@ -4,7 +4,7 @@ Tags: ios, iphone, thumbnails, media, images, upload
 Donate link: http://bishoy.me/donate
 Requires at least: 2.0.0
 Tested up to: 4.0
-Stable tag: 1.2
+Stable tag: 1.2.1
 Author: Bishoy A.
 License: GPL2
 License URI: http://www.gnu.org/licenses/license-list.html#GPLCompatibleLicenses
@@ -17,11 +17,18 @@ By default, thumbnails of photos taken by an iOS device (iPhone or iPad) are fli
 No settings editing required, just activate the plugin and try uploading an image from your idevice!
 
 == Frequently Asked Questions ==
-= Is there any special requirement? =
-Yes, PHP GD library or ImageMagic.
+= Is there any special requirement? = 
+* PHP GD library or ImageMagic.
+* exif extension installed.
 
-= Is there any code-level modifications required? =
+= Are there any code-level modifications required? =
 No, just install the plugin and continue blogging happily.
+
+== Screenshots ==
+
+1. Apart from automatically fixing images upon upload, we're introducing a new feature for fixing iOS images manually, including images that were uploaded before the plugin's installation!
+2. Fix Images. Those are the ones that were not catched by the plugin for some reason, or has been uploaded before the plugin's installation.
+3. This is what the plugin would do to the image in figure 2.
 
 == Installation ==
 1. Go to your admin area and select Plugins -> Add new from the menu.
@@ -31,11 +38,14 @@ No, just install the plugin and continue blogging happily.
 
 == Changelog ==
 
+= 1.2.1 =
+* Added a check to make sure the image has EXIF data before proceeding.
+
 = 1.2 =
-Added manual fix page to let you fix images that were uploaded before installing the plugin!
+* Added manual fix page to let you fix images that were uploaded before installing the plugin!
 
 = 1.1 =
-Added conditional check and admin notice in case of disabled required functions.
+* Added conditional check and admin notice in case of disabled required functions.
 
 = 1.0 =
 * Initial plugin release.
