@@ -3,7 +3,7 @@ Contributors: Bishoy.A
 Tags: ios, iphone, thumbnails, media, images, upload
 Donate link: http://bishoy.me/donate
 Requires at least: 2.0.0
-Tested up to: 4.0
+Tested up to: 4.1
 Stable tag: 1.2.1
 Author: Bishoy A.
 License: GPL2
