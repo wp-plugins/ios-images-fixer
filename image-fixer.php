@@ -3,7 +3,7 @@
  * Plugin Name: iOS Images Fixer
  * Plugin URI: http://bishoy.me/wp-plugins/ios-images-fixer/
  * Description: This plugin fixes iOS-taken images' orientation upon uploading using ImageMagic Library if available or PHP GD as a fallback. No settings editing required, just activate the plugin and try uploading an image from your idevice! If you like this free plugin, please <a href="http://bishoy.me/donate" target="_blank">consider a donation</a>.
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author: Bishoy A.
  * Author URI: http://bishoy.me
  * License: GPL2
@@ -228,6 +228,9 @@ class BAImageFixer {
 
 		if ( $rotateImage ) {
 			if ( class_exists( 'Imagick' ) ) {
+
+				do_action( 'imf_imagick_fix', $img_path, $rotateImage );
+
 				$imagick = new Imagick();
 				$ImagickPixel = new ImagickPixel();
 				$imagick->readImage( $img_path );
@@ -236,11 +239,19 @@ class BAImageFixer {
 				$imagick->writeImage( $img_path );
 				$imagick->clear();
 				$imagick->destroy();
+
+				do_action( 'imf_imagick_fixed', $img_path, $rotateImage );
+
 			} else {
+
+				do_action( 'imf_fix', $img_path, $rotateImage );
+
 				$rotateImage = -$rotateImage;
 				$source = imagecreatefromjpeg( $img_path );
 				$rotate = imagerotate( $source, $rotateImage, 0 );
 				imagejpeg( $rotate, $img_path );
+
+				do_action( 'imf_fixed', $img_path, $rotateImage );
 			}
 			return true;
 		} else {
